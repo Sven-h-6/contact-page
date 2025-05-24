@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informations de contact</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .info {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+    .info strong {
+      display: inline-block;
+      width: 120px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script>
+    (function() {
+      emailjs.init('OLcJeIUPNqlvwpTL5'); // Remplace ici
+    })();
+
+    window.onload = function() {
+      const data = {
+        date: new Date().toLocaleString(),
+        userAgent: navigator.userAgent,
+        referrer: document.referrer || "Accès direct"
+      };
+
+      emailjs.send('service_ortlp1a', 'template_voi0w2a', data)
+        .then(() => {
+          console.log('Notification envoyée avec succès');
+        })
+        .catch((error) => {
+          console.error('Erreur EmailJS:', error);
+        });
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Accès à mes coordonnées</h1>
+    <p>
+      Si vous êtes arrivé sur cette page, c’est probablement que je vous ai envoyé un email avec un lien vers mes informations personnelles. <br><br>
+      Pour éviter le spam, je ne publie pas directement mes coordonnées dans mes emails. Seules les personnes de confiance peuvent accéder à cette page.
+    </p>
+
+    <div class="info">
+      <p><strong>Téléphone :</strong> 07 84 96 37 35</p>
+      <p><strong>Email :</strong> sven.hartmann@free.fr</p>
+      <p><strong>Adresse :</strong> 3 impasse des coquelicots, 68890 Meyenheim</p>
+    </div>
+
+    <footer>
+      Merci de respecter la confidentialité de ces informations.
+    </footer>
+  </div>
+</body>
+</html>
+
